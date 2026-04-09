@@ -1,0 +1,7 @@
+1. Computer randomly picks rock, paper or scissors. Use Math.floor(Math.random( * ))
+2. User is prompted to pick rock, paper or scissors
+3. Computer and user choice is compared with if statements
+4. Winner is announced
+5. Tally is printed showing wins for each side
+
+1. Function getComputerChoice randomly picks between strings: Rock, Paper or Scissors
