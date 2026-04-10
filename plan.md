@@ -5,3 +5,5 @@
 5. Tally is printed showing wins for each side
 
 1. Function getComputerChoice randomly picks between strings: Rock, Paper or Scissors
+
+3. Compare computer and human choice, if computer = rock if inside human = rock, etc. else if computer = paper Human choice is called by e.g. userChoice = 'Rock'
