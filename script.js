@@ -17,6 +17,7 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+let draw = 0;
 
 function playRound(humanSelection, computerSelection) {
     console.log(computerSelection);
@@ -25,6 +26,7 @@ function playRound(humanSelection, computerSelection) {
             console.log('Draw')
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
+            draw++;
     } else if (computerSelection == 'Rock' && humanSelection == 'Paper') {
             console.log('Win')
             humanScore++;
@@ -39,6 +41,7 @@ function playRound(humanSelection, computerSelection) {
             console.log('Draw')
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
+            draw++;
     } else if (computerSelection == 'Paper' && humanSelection == 'Scissors') {
             console.log('Win')
             humanScore++;
@@ -53,6 +56,7 @@ function playRound(humanSelection, computerSelection) {
             console.log('Draw')
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
+            draw++;
     } else if (computerSelection == 'Scissors' && humanSelection == 'Rock') {
             console.log('Win')
             humanScore++;
@@ -69,8 +73,18 @@ function playRound(humanSelection, computerSelection) {
 function playGame() {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        
+    playRound(humanSelection, computerSelection);
+    if (humanScore + computerScore + draw == 5) {
+        if (humanScore > computerScore) {
+        console.log('Human Wins!')
+        }
+        else if (humanScore == computerScore) {
+        console.log("It's a Tie!");
+        } else {
+        console.log('Computer Wins!')
+        }
+    }
+    
 }
 
 for (let i = 0; i < 5; i++) {
