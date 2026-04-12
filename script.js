@@ -70,3 +70,11 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+function playGame() {
+        playRound(humanSelection, computerSelection);
+}
+
+for (let i = 0; i < 5; i++) {
+setTimeout(playGame, 10000 * (i + 1));
+}
