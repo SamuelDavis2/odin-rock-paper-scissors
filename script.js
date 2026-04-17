@@ -87,6 +87,7 @@ function playGame() {
     
 }
 
-for (let i = 0; i < 5; i++) {
-setTimeout(playGame, 10000 * (i + 1));
-}
+const btn = document.querySelector("button");
+btn.addEventListener("click", () => {
+        console.log(btn.id);
+});
