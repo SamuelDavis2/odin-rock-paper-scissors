@@ -15,59 +15,55 @@ let computerScore = 0;
 let draw = 0;
 
 const btn = document.querySelectorAll("button");
-        const humanSelection = btn.forEach(btn => {
-                btn.addEventListener("click", () => {
-                        console.log(btn.id);
-                });
-        });
 btn.forEach(btn => {
-        btn.addEventListener("click", playRound);
+        btn.addEventListener("click", () => playRound(btn.id));
 });
 
 function playRound(humanSelection, computerSelection) {
         computerSelection = getComputerChoice();
-        console.log(computerSelection);
-        if (computerSelection == 'Rock' && humanSelection == Rock) {
+        console.log('Computer: ', computerSelection);
+        console.log('Human: ', humanSelection);
+        if (computerSelection == 'Rock' && humanSelection == 'Rock') {
             console.log('Draw')
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
             draw++;
-        } else if (computerSelection == 'Rock' && humanSelection == Paper) {
+        } else if (computerSelection == 'Rock' && humanSelection == 'Paper') {
             console.log('Win')
             humanScore++;
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
-         } else if (computerSelection == 'Rock' && humanSelection == Scissors) {
+         } else if (computerSelection == 'Rock' && humanSelection == 'Scissors') {
             console.log('Lose')
             computerScore++;
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
-        } else if (computerSelection == 'Paper' && humanSelection == Paper) {
+        } else if (computerSelection == 'Paper' && humanSelection == 'Paper') {
             console.log('Draw')
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
             draw++;
-        } else if (computerSelection == 'Paper' && humanSelection == Scissors) {
+        } else if (computerSelection == 'Paper' && humanSelection == 'Scissors') {
             console.log('Win')
             humanScore++;
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
-         } else if (computerSelection == 'Paper' && humanSelection == Rock) {
+         } else if (computerSelection == 'Paper' && humanSelection == 'Rock') {
             console.log('Lose')
             computerScore++;
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
-        } else if (computerSelection == 'Scissors' && humanSelection == Scissors) {
+        } else if (computerSelection == 'Scissors' && humanSelection == 'Scissors') {
             console.log('Draw')
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
             draw++;
-         } else if (computerSelection == 'Scissors' && humanSelection == Rock) {
+         } else if (computerSelection == 'Scissors' && humanSelection == 'Rock') {
             console.log('Win')
             humanScore++;
             console.log('Computer:', computerScore);
             console.log('You:', humanScore);
-         } else if (computerSelection == 'Scissors' && humanSelection == Paper) {
+         } else if (computerSelection == 'Scissors' && humanSelection == 'Paper') {
             console.log('Lose')
             computerScore++;
             console.log('Computer:', computerScore);
