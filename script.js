@@ -19,64 +19,104 @@ btn.forEach(btn => {
         btn.addEventListener("click", () => playRound(btn.id));
 });
 
+const results = document.querySelector(".results");
+const computerResults = document.createElement("p");
+const humanResults = document.createElement("p");
+const winner = document.createElement("p");
+const score = document.createElement("h2");
+const finalWinner = document.createElement("h2");
+const restart = document.createElement("button");
+restart.textContent = "Play Again";
+
 function playRound(humanSelection, computerSelection) {
         computerSelection = getComputerChoice();
-        console.log('Computer: ', computerSelection);
-        console.log('Human: ', humanSelection);
+        computerResults.textContent = `Computer Choice: ${computerSelection}`;
+        humanResults.textContent = `Human Choice: ${humanSelection}`;
+        results.appendChild(computerResults);
+        results.appendChild(humanResults);
         if (computerSelection == 'Rock' && humanSelection == 'Rock') {
-            console.log('Draw')
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            winner.textContent = "Winner: Draw";
+            results.appendChild(winner);
             draw++;
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
         } else if (computerSelection == 'Rock' && humanSelection == 'Paper') {
-            console.log('Win')
+            winner.textContent = "Winner: Human";
+            results.appendChild(winner);
             humanScore++;
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
          } else if (computerSelection == 'Rock' && humanSelection == 'Scissors') {
-            console.log('Lose')
+            winner.textContent = "Winner: Computer";
+            results.appendChild(winner);
             computerScore++;
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
         } else if (computerSelection == 'Paper' && humanSelection == 'Paper') {
-            console.log('Draw')
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            winner.textContent = "Winner: Draw";
+            results.appendChild(winner);
             draw++;
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
         } else if (computerSelection == 'Paper' && humanSelection == 'Scissors') {
-            console.log('Win')
+            winner.textContent = "Winner: Human";
+            results.appendChild(winner);
             humanScore++;
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
          } else if (computerSelection == 'Paper' && humanSelection == 'Rock') {
-            console.log('Lose')
+            winner.textContent = "Winner: Computer";
+            results.appendChild(winner);
             computerScore++;
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
         } else if (computerSelection == 'Scissors' && humanSelection == 'Scissors') {
-            console.log('Draw')
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            winner.textContent = "Winner: Draw";
+            results.appendChild(winner);
             draw++;
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
          } else if (computerSelection == 'Scissors' && humanSelection == 'Rock') {
-            console.log('Win')
+            winner.textContent = "Winner: Human";
+            results.appendChild(winner);
             humanScore++;
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
          } else if (computerSelection == 'Scissors' && humanSelection == 'Paper') {
-            console.log('Lose')
+            winner.textContent = "Winner: Computer";
+            results.appendChild(winner);
             computerScore++;
-            console.log('Computer:', computerScore);
-            console.log('You:', humanScore);
+            score.textContent = `Human: ${humanScore}   Computer: ${computerScore}`;
+            results.prepend(score);
         }
         if (humanScore + computerScore + draw == 5) {
                 if (humanScore > computerScore) {
-                console.log('Human Wins!')
+                finalWinner.textContent = "Human Wins!"
+                results.appendChild(finalWinner);
+                results.appendChild(restart);
                 }
                 else if (humanScore == computerScore) {
-                console.log("It's a Tie!");
+                finalWinner.textContent = "It's a Tie!"
+                results.appendChild(finalWinner);
+                results.appendChild(restart);
                 } else {
-                console.log('Computer Wins!')
+                finalWinner.textContent = "Computer Wins!"
+                results.appendChild(finalWinner);
+                results.appendChild(restart);
                 }
         }
 }
+
+function playAgain() {
+        humanScore = 0;
+        computerScore = 0;
+        draw = 0; 
+        computerResults.textContent = `Computer Choice: `;
+        humanResults.textContent = `Human Choice: `;
+        winner.textContent = `Winner: `;
+        finalWinner.remove();
+        score.textContent = `Human:     Computer: `;
+        restart.remove();
+}
+
+restart.addEventListener("click", playAgain);
