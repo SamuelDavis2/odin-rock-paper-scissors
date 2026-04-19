@@ -121,8 +121,8 @@ function playAgain() {
 
 restart.addEventListener("click", playAgain);
 
-restart.style.backgroundColor = '#f2f0f7';
+restart.style.backgroundColor = '#cbc9e2';
 restart.style.border = "none";
-restart.style.color = "#756bb1";
+restart.style.color = "#54278f";
 restart.style.borderRadius = "20px";
-restart.style.fontWeight = "bold";
+restart.style.padding = "10px 20px";
